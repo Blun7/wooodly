@@ -1,36 +1,40 @@
 import "./App.css";
-import PageTitle from "./components/PageTitle";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProjectFeed from "./components/ProjectFeed";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import Navigation from "./components/Navigation";
+import AddProject from "./components/AddProject";
+import PageTitle from "./components/PageTitle";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 
 function App() {
     return (
-        <div className="md:container md:mx-auto">
-            <div>
-                <PageTitle />
-            </div>
-            <div className="space-x-4 mt-5">
-                <Router>
-                    <Navigation />
-                    <div className="container mt-5">
-                        <Switch>
-                            <Route exact path="/">
-                                <ProjectFeed />
-                            </Route>
-                            <Route path="/login">
-                                <Login />
-                            </Route>
-                            <Route path="/signup">
-                                <Signup />
-                            </Route>
-                        </Switch>
-                    </div>
-                </Router>
-            </div>
-        </div>
+        <Container>
+            <Router>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <PageTitle />
+                    </Grid>
+                </Grid>
+                <div>
+                    <Switch>
+                        <Route exact path="/">
+                            <ProjectFeed />
+                        </Route>
+                        <Route path="/login">
+                            <Login />
+                        </Route>
+                        <Route path="/signup">
+                            <Signup />
+                        </Route>
+                        <Route path="/add-project">
+                            <AddProject />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        </Container>
     );
 }
 

@@ -4,7 +4,7 @@ import ProjectFooter from "./ProjectFooter";
 
 function Project() {
     return (
-        <div className="p-3">
+        <div>
             <ProjectHeader />
             <ProjectPicture />
             <ProjectFooter />
